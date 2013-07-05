@@ -1,4 +1,4 @@
-require('fs');OAAOA
+var fs = require('fs');
 var express = require('express');
 
 //var buf = new Buffer(fs.readFileSync('index.html'));

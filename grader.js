@@ -49,11 +49,7 @@ var gradeUrl = function(result, response) {
 }
 
 var getUrl = function(url) {
-/*    console.log(url);
-    var arr = url.split(" ");
-    console.log(arr[1] + "/" + arr[0]);
-    var _url = arr[1] + "/" + arr[0];
-*/    rest.get(url).on('complete', gradeUrl);
+    rest.get(url).on('complete', gradeUrl);
 };
 
 var cheerioHtmlFile = function(htmlfile) {
@@ -89,18 +85,12 @@ if(require.main == module) {
         .parse(process.argv);
     var url = program.url;
     if(typeof program.url != 'undefined') {
-	console.log('Url parameter is present');
 	getUrl(program.url);
     } else {
-	console.log('Url parameter is NOT present');
-	// var pfile = program.file;
 	var checkJson = checkHtmlFile(program.file, program.checks);
 	var outJson = JSON.stringify(checkJson, null, 4);
 	console.log(outJson);
     }
-//    var checkJson = checkHtmlFile(pfile, program.checks);
-//    var outJson = JSON.stringify(checkJson, null, 4);
-//    console.log(outJson);
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
